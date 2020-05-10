@@ -6,6 +6,8 @@
 package br.com.simplesinformatica.RFBApi.dto;
 
 import br.com.simplesinformatica.RFBApi.model.Empresa;
+import java.util.ArrayList;
+import java.util.List;
 
 public class EmpresaDTO extends DTOAbstract<Empresa>{
     
@@ -67,5 +69,11 @@ public class EmpresaDTO extends DTOAbstract<Empresa>{
     public void setSituacaoCadastral(String situacaoCadastral) {
         this.situacaoCadastral = situacaoCadastral;
     }
-    
+    public static List<EmpresaDTO> toList(List<Empresa> empresas){
+        List<EmpresaDTO> empresasDTO = new ArrayList<>();
+        for(Empresa empresa:empresas){
+            empresasDTO.add(new EmpresaDTO(empresa));
+        }
+        return empresasDTO;
+    }
 }

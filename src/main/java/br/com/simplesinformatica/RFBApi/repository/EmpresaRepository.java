@@ -6,16 +6,15 @@
 package br.com.simplesinformatica.RFBApi.repository;
 
 import br.com.simplesinformatica.RFBApi.model.Empresa;
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Repository;
 
 /**
  *
- * @author RicardoJr
+ * @author digger.pixel
  */
 @Repository
-public interface EmpresaRepository extends JpaRepository<Empresa, Long>{
+public interface EmpresaRepository extends PagingAndSortingRepository<Empresa, Long>{
     
     Empresa findByCnpj(String cnpj);
-    
 }
