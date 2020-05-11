@@ -7,6 +7,7 @@ package br.com.simplesinformatica.RFBApi.model;
 
 import br.com.simplesinformatica.RFBApi.dto.EmpresaDTO;
 import java.util.Calendar;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -100,6 +101,8 @@ public class Empresa extends ModelAbstract<Empresa>{
     @Temporal(TemporalType.TIMESTAMP)
     private Calendar dataSituacaoEspecial;
 
+    //private List<Socio> socios;
+    
     public Empresa() {
         super();
     }

@@ -5,13 +5,10 @@
  */
 package br.com.simplesinformatica.RFBApi.repository;
 
-import br.com.simplesinformatica.RFBApi.model.Empresa;
+import br.com.simplesinformatica.RFBApi.model.Socio;
 import org.springframework.data.repository.PagingAndSortingRepository;
-import org.springframework.stereotype.Repository;
 
 
-@Repository
-public interface EmpresaRepository extends PagingAndSortingRepository<Empresa, Long>{
+public interface SocioRepository extends PagingAndSortingRepository<Socio, Long>{
     
-    Empresa findByCnpj(String cnpj);
 }
