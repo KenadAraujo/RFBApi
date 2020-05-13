@@ -5,11 +5,18 @@
  */
 package br.com.simplesinformatica.RFBApi.dto;
 
+import java.util.List;
+
 import br.com.simplesinformatica.RFBApi.model.ModelAbstract;
+import br.com.simplesinformatica.RFBApi.model.Socio;
 
 
 public abstract class DTOAbstract<T> {
     
     public DTOAbstract(){}
     public DTOAbstract(T modelo) {}
+
+    public static List toList(List modelos){
+        return null;
+    }
 }

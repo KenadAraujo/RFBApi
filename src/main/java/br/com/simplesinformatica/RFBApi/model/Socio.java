@@ -5,7 +5,8 @@
  */
 package br.com.simplesinformatica.RFBApi.model;
 
-import br.com.simplesinformatica.RFBApi.dto.DTOAbstract;
+import br.com.simplesinformatica.RFBApi.dto.SocioDTO;
+
 import java.util.Calendar;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -27,8 +28,9 @@ public class Socio extends ModelAbstract<Socio>{
     @Column(name = "tipo_atualizacao")
     private String tipoAtualizacao;//Enum
     
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "cnpj_da_empresa",nullable = false)
+    //@ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
+    @JoinColumn(name = "cnpj_da_empresa")
     private Empresa empresa;
     
     @Column(name = "identificador_do_socio")
@@ -68,7 +70,7 @@ public class Socio extends ModelAbstract<Socio>{
     public Socio() {
     }
 
-    public Socio(DTOAbstract dto) {
+    public Socio(SocioDTO dto) {
         super(dto);
     }
 
@@ -86,14 +88,6 @@ public class Socio extends ModelAbstract<Socio>{
 
     public void setTipoAtualizacao(String tipoAtualizacao) {
         this.tipoAtualizacao = tipoAtualizacao;
-    }
-
-    public Empresa getEmpresa() {
-        return empresa;
-    }
-
-    public void setEmpresa(Empresa empresa) {
-        this.empresa = empresa;
     }
 
     public String getIdentificadorDoSocio() {
@@ -182,6 +176,14 @@ public class Socio extends ModelAbstract<Socio>{
 
     public void setCodigoQualificacaoRepresentanteLegal(String codigoQualificacaoRepresentanteLegal) {
         this.codigoQualificacaoRepresentanteLegal = codigoQualificacaoRepresentanteLegal;
+    }
+
+    public Empresa getEmpresa() {
+        return empresa;
+    }
+
+    public void setEmpresa(Empresa empresa) {
+        this.empresa = empresa;
     }
     
     

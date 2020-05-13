@@ -6,7 +6,10 @@
 package br.com.simplesinformatica.RFBApi.dto;
 
 import br.com.simplesinformatica.RFBApi.model.Socio;
+
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 
 public class SocioDTO extends DTOAbstract<Socio>{
@@ -16,7 +19,7 @@ public class SocioDTO extends DTOAbstract<Socio>{
     private String nome;
     private String cnpjCpf;
     private Calendar dataEntradaNaSociedade;
-    private EmpresaDTO empresaDTO;
+    private EmpresaDTO empresa;
     
     public SocioDTO() {
     }
@@ -27,7 +30,7 @@ public class SocioDTO extends DTOAbstract<Socio>{
         setNome(modelo.getNome());
         setCnpjCpf(modelo.getCnpjCpf());
         setDataEntradaNaSociedade(modelo.getDataEntradaNaSociedade());
-        setEmpresaDTO(new EmpresaDTO(modelo.getEmpresa()));
+        setEmpresa(new EmpresaDTO(modelo.getEmpresa()));
     }
 
     public String getIdentificadorDoSocio() {
@@ -62,12 +65,22 @@ public class SocioDTO extends DTOAbstract<Socio>{
         this.dataEntradaNaSociedade = dataEntradaNaSociedade;
     }
 
-    public EmpresaDTO getEmpresaDTO() {
-        return empresaDTO;
+    public EmpresaDTO getEmpresa() {
+        return empresa;
     }
 
-    public void setEmpresaDTO(EmpresaDTO empresaDTO) {
-        this.empresaDTO = empresaDTO;
+    public void setEmpresa(EmpresaDTO empresa) {
+        this.empresa = empresa;
     }
+    
+    public static List toList(List modelos) {
+        List<SocioDTO> sociosDTO = new ArrayList<>();
+        List<Socio> socios = modelos;
+        for(Socio socio:socios){
+            sociosDTO.add(new SocioDTO(socio));
+        }
+        return sociosDTO;
+    }
+
     
 }

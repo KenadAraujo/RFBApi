@@ -13,6 +13,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -20,13 +21,14 @@ import javax.persistence.TemporalType;
 @Entity(name = "empresa")
 public class Empresa extends ModelAbstract<Empresa>{
     
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    //@Id
+    //@GeneratedValue(strategy = GenerationType.AUTO)
+    //private Long id;
     
     @Column(name = "tipo_atualizacao")
     private String tipoAtualizacao;//Enum
     
+    @Id
     @Column(name = "cnpj")
     private String cnpj;
     
@@ -100,8 +102,9 @@ public class Empresa extends ModelAbstract<Empresa>{
     @Column(name = "data_situacao_especial")
     @Temporal(TemporalType.TIMESTAMP)
     private Calendar dataSituacaoEspecial;
-
-    //private List<Socio> socios;
+    
+    @OneToMany(mappedBy = "empresa")
+    private List<Socio> socios;
     
     public Empresa() {
         super();
@@ -112,14 +115,6 @@ public class Empresa extends ModelAbstract<Empresa>{
         this.nomeFantasia = empresaDTO.getNomeFantasia();
         this.situacaoCadastral = empresaDTO.getSituacaoCadastral();
         this.tipoEmpresa = empresaDTO.getTipoEmpresa();
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getTipoAtualizacao() {

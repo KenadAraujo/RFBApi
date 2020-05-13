@@ -69,11 +69,13 @@ public class EmpresaDTO extends DTOAbstract<Empresa>{
     public void setSituacaoCadastral(String situacaoCadastral) {
         this.situacaoCadastral = situacaoCadastral;
     }
-    public static List<EmpresaDTO> toList(List<Empresa> empresas){
+    public static List toList(List modelos){
         List<EmpresaDTO> empresasDTO = new ArrayList<>();
+        List<Empresa> empresas = modelos;
         for(Empresa empresa:empresas){
             empresasDTO.add(new EmpresaDTO(empresa));
         }
         return empresasDTO;
     }
+    
 }

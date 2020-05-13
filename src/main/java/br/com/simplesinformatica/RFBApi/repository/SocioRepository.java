@@ -5,10 +5,15 @@
  */
 package br.com.simplesinformatica.RFBApi.repository;
 
+import br.com.simplesinformatica.RFBApi.model.Empresa;
 import br.com.simplesinformatica.RFBApi.model.Socio;
+import java.util.List;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.PagingAndSortingRepository;
+import org.springframework.data.repository.query.Param;
 
 
 public interface SocioRepository extends PagingAndSortingRepository<Socio, Long>{
     
+    List<Socio> findByEmpresa(Empresa empresa);
 }
